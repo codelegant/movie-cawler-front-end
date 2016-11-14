@@ -1,0 +1,36 @@
+{
+  "name": "movie-cawler-front-end-react",
+  "version": "0.0.1",
+  "description": "koa+react",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --harmony-async-await app.js",
+    "dev": "node-dev --harmony-async-await app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codelegant/movie-cawler-front-end-react.git"
+  },
+  "keywords": [
+    "koa",
+    "react",
+    "webpack",
+    "es6"
+  ],
+  "author": "laichuanfeng@hotmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codelegant/movie-cawler-front-end-react/issues"
+  },
+  "homepage": "https://github.com/codelegant/movie-cawler-front-end-react#readme",
+  "dependencies": {
+    "koa": "^2.0.0",
+    "koa-bodyparser": "^3.2.0",
+    "koa-csrf": "^3.0.4",
+    "koa-logger": "^2.0.0",
+    "koa-route": "^3.2.0",
+    "koa-static": "^3.0.0",
+    "koa-views": "^5.0.2",
+    "pug": "^2.0.0-beta6"
+  }
+}
