@@ -6,7 +6,7 @@ const logger = require('koa-logger');
 const server = require('koa-static');
 const bodyParser = require('koa-bodyparser');
 const views = require('koa-views');
-const pug = require('pug');
+const favicon = require('koa-favicon');
 const cliLog = require('./libs/cliLog');
 
 const app = new Koa();
@@ -17,8 +17,9 @@ app
   .use(router.routes())
   .use(router.allowedMethods())
   .use(logger())
-  .use(server(path.join(__dirname, 'public')))
-  .use(bodyParser());
+  .use(server(path.join(__dirname, '/public')))
+  .use(bodyParser())
+  .use(favicon(path.join(__dirname, '/favicon.ico')));
 
 router
   .use(views(path.join(__dirname, '/views'), { extension: 'pug' }));
