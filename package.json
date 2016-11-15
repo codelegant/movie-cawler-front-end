@@ -5,17 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "node --harmony-async-await ./bin/www",
-    "debug": "set DEBUG=server dev & node-dev --harmony-async-await ./bin/www"
+    "dev": "set DEBUG=dev debug & node-dev --harmony-async-await ./bin/www"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/codelegant/movie-cawler-front-end-react.git"
   },
   "keywords": [
-    "koa",
-    "react",
-    "webpack",
-    "es6"
+    "koa","react","webpack","es6"
   ],
   "author": "laichuanfeng@hotmail.com",
   "license": "MIT",
