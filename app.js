@@ -8,7 +8,7 @@ const bodyParser = require('koa-bodyparser');
 const views = require('koa-views');
 const favicon = require('koa-favicon');
 const cliLog = require('./libs/cliLog');
-
+const cityApi = require('./controller/cityApi');
 const app = new Koa();
 // cliLog.warn(render('index'));
 
@@ -26,13 +26,16 @@ router
 
 
 router.get('/', async ctx => {
+  console.log(cityApi.get());
+
+  cliLog.warn(ctx.request.body);
   await ctx.render('index', {
     content: 'laichuanfeng',
-    script: 'window.name="3"'
+    props: JSON.stringify({ name: 'lai' })
   });
 });
 
-app.on('error', async (err, ctx) => {
+app.on('error', async(err, ctx) => {
   ctx.status = (err.status || 500);
   debug(err);
   await ctx.render('error', {

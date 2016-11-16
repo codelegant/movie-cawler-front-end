@@ -12,7 +12,10 @@
     "url": "git+https://github.com/codelegant/movie-cawler-front-end-react.git"
   },
   "keywords": [
-    "koa","react","webpack","es6"
+    "koa",
+    "react",
+    "webpack",
+    "es6"
   ],
   "author": "laichuanfeng@hotmail.com",
   "license": "MIT",
@@ -35,7 +38,9 @@
     "pug": "^2.0.0-beta6",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-tap-event-plugin": "^1.0.0"
+    "react-tap-event-plugin": "^1.0.0",
+    "request": "^2.78.0",
+    "request-promise": "^4.1.1"
   },
   "devDependencies": {
     "babel-core": "^6.10.4",
