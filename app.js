@@ -7,8 +7,11 @@ const server = require('koa-static');
 const bodyParser = require('koa-bodyparser');
 const views = require('koa-views');
 const favicon = require('koa-favicon');
+
 const cliLog = require('./libs/cliLog');
 const City = require('./model/City');
+const Movie = require('./model/Movie');
+
 const app = new Koa();
 // cliLog.warn(render('index'));
 
@@ -27,12 +30,16 @@ router
 
 router.get('/', async ctx => {
   const city = new City();
-  ctx.body = await city.get();
+  const movie = new Movie();
+  const cities = await city.get();
 
-  // await ctx.render('index', {
-  //   content: 'laichuanfeng',
-  //   props: JSON.stringify({ name: 'lai' })
-  // });
+  const currentCity = await city.getByRegionName('深圳');
+  const movies = await movie.getByCityId(currentCity._id);
+
+  await ctx.render('index', {
+    content: 'laichuanfeng',
+    props: JSON.stringify({ name: 'lai' })
+  });
 });
 
 app.on('error', async(err, ctx) => {

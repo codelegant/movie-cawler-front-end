@@ -1,27 +1,12 @@
-const rp = require('request-promise');
-const cliLog = require('../libs/cliLog');
+const Api = require('./Api');
 
-class City {
+class City extends Api {
   constructor(options) {
-    this.options = Object.assign({
-      uri: 'http://127.0.0.1:8080/cities',
-      headers: {
-        'User-Agent': 'Request-Promise'
-      },
-      json: true
-    }, options);
+    super('cities', options)
   }
 
-  get() {
-    return rp(this.options)
-      .then(res => res)
-      .catch(e => cliLog.error(e));
-  }
-
-  put() {
-    return rp(this.options)
-      .then(res => res)
-      .catch(e => cliLog.error(e))
+  getByRegionName(regionName) {
+    return this.get({ regionName })
   }
 }
 
