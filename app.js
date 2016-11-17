@@ -1,6 +1,6 @@
 const path = require('path');
 const Koa = require('koa');
-const debug = require('debug')('dev');
+const debug = require('debug')('debug');
 const router = require('koa-router')();
 const logger = require('koa-logger');
 const server = require('koa-static');
@@ -29,17 +29,22 @@ router
 
 
 router.get('/', async ctx => {
-  const city = new City();
-  const movie = new Movie();
-  const cities = await city.get();
+  try {
+    const city = new City();
+    const movie = new Movie();
+    const cities = await city.get();
 
-  const currentCity = await city.getByRegionName('深圳');
-  const movies = await movie.getByCityId(currentCity._id);
+    const currentCity = await city.getByRegionName('深圳');
+    const movies = await movie.getByCityId(currentCity[ 0 ]._id);
 
-  await ctx.render('index', {
-    content: 'laichuanfeng',
-    props: JSON.stringify({ name: 'lai' })
-  });
+    await ctx.render('index', {
+      content: 'laichuanfeng',
+      props: JSON.stringify({ cities, movies })
+    });
+  } catch (e) {
+    cliLog.error(e);
+    return ctx.status = 500;
+  }
 });
 
 app.on('error', async(err, ctx) => {

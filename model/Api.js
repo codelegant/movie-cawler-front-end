@@ -1,5 +1,6 @@
 const rp = require('request-promise');
 const cliLog = require('../libs/cliLog');
+const debug = require('debug')('debug');
 
 class Api {
   constructor(path, options) {
@@ -13,7 +14,7 @@ class Api {
   }
 
   get(qs = {}) {
-    return rp(Object(this.options, { qs }))
+    return rp(Object.assign(this.options, { qs }))
       .then(res => res)
       .catch(e => cliLog.error(e));
   }
