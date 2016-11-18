@@ -2,10 +2,10 @@ const webpack = require('webpack');
 const name = 'index';
 module.exports = {
   entry: {
-    [`${name}`]: `./static/src/script/${name}`,
+    [`${name}`]: `./front/src/script/${name}`,
   },
   output: {
-    path: './static/dist/script/',
+    path: './front/dist/script/',
     public: 'http://localhost:3000',
     filename: '[name].min.js'
   },

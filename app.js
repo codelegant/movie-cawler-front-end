@@ -25,7 +25,7 @@ app
     flush: require('zlib').Z_SYNC_FLUSH,
   }))
   .use(logger())
-  .use(server(path.join(__dirname, '/static/dist')))
+  .use(server(path.join(__dirname, '/front/dist')))
   .use(bodyParser())
   .use(favicon(path.join(__dirname, '/favicon.ico')));
 
