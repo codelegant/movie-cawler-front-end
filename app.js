@@ -39,12 +39,12 @@ router.get('/', async ctx => {
     const movie = new Movie();
     // const cities = await city.get();
 
-    const currentCity = await city.getByRegionName('深圳');
-    const movies = await movie.getByCityId(currentCity[ 0 ]._id);
+    // const currentCity = await city.getByRegionName('深圳');
+    // const movies = await movie.getByCityId(currentCity[ 0 ]._id);
 
     await ctx.render('index', {
       content: '',
-      props: JSON.stringify({ movies })
+      props: JSON.stringify({})
     });
   } catch (e) {
     cliLog.error(e);

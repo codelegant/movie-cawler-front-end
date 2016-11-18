@@ -2,12 +2,12 @@
   "name": "movie-cawler-front-end-react",
   "version": "0.0.1",
   "description": "koa+react",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node --harmony-async-await ./bin/www",
     "dev": "set DEBUG=debug & node-dev --harmony-async-await ./bin/www",
-    "prod": "webpack --progress --watch --profile --colors --display-modules --display-error-details --display-cached --config webpack.prod.config.js",
-    "dev-react": "webpack --progress --watch --profile --colors --display-modules --display-error-details --display-cached --config webpack.dev.config.js"
+    "build:prod": "webpack --progress --watch --profile --colors --display-modules --display-error-details --display-cached --config webpack.prod.config.js",
+    "build:dev": "webpack --progress --watch --profile --colors --display-modules --display-error-details --display-cached --config webpack.dev.config.js"
   },
   "repository": {
     "type": "git",
@@ -38,9 +38,9 @@
     "koa-views": "^5.0.2",
     "material-ui": "^0.16.2",
     "pug": "^2.0.0-beta6",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "react-tap-event-plugin": "^1.0.0",
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0",
+    "react-tap-event-plugin": "^2.0.1",
     "request": "^2.78.0",
     "request-promise": "^4.1.1"
   },
