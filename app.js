@@ -7,6 +7,7 @@ const server = require('koa-static');
 const bodyParser = require('koa-bodyparser');
 const views = require('koa-views');
 const favicon = require('koa-favicon');
+const compress = require('koa-compress');
 
 const cliLog = require('./libs/cliLog');
 const City = require('./model/City');
@@ -19,6 +20,10 @@ const app = new Koa();
 app
   .use(router.routes())
   .use(router.allowedMethods())
+  .use(compress({
+    level: 6,
+    flush: require('zlib').Z_SYNC_FLUSH,
+  }))
   .use(logger())
   .use(server(path.join(__dirname, '/static/dist')))
   .use(bodyParser())
@@ -32,14 +37,14 @@ router.get('/', async ctx => {
   try {
     const city = new City();
     const movie = new Movie();
-    const cities = await city.get();
+    // const cities = await city.get();
 
     const currentCity = await city.getByRegionName('深圳');
     const movies = await movie.getByCityId(currentCity[ 0 ]._id);
 
     await ctx.render('index', {
-      content: 'laichuanfeng',
-      props: JSON.stringify({ cities, movies })
+      content: '',
+      props: JSON.stringify({ movies })
     });
   } catch (e) {
     cliLog.error(e);

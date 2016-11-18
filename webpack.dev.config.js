@@ -9,6 +9,7 @@ module.exports = {
     public: 'http://localhost:3000',
     filename: '[name].min.js'
   },
+  devtool: 'eval-source-map',
   module: {
     loaders: [
       {
@@ -36,12 +37,8 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('production')// production | true
+        NODE_ENV: JSON.stringify(true)// production | true
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false },
-      output: { comments: false }
-    })
   ],
 };
