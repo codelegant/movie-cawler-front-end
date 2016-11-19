@@ -14,8 +14,6 @@ const City = require('./model/City');
 const Movie = require('./model/Movie');
 
 const app = new Koa();
-// cliLog.warn(render('index'));
-
 
 app
   .use(router.routes())
@@ -27,7 +25,7 @@ app
   .use(logger())
   .use(server(path.join(__dirname, '/front/dist')))
   .use(bodyParser())
-  .use(favicon(path.join(__dirname, '/favicon.ico')));
+  .use(favicon(path.join(__dirname, '/favicon.ico')))
 
 router
   .use(views(path.join(__dirname, '/views'), { extension: 'pug' }));

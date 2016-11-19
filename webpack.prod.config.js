@@ -27,12 +27,6 @@ module.exports = {
       }
     ]
   },
-  externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM',
-    'react/lib/update': 'React.addons.update',
-    'react/lib/ReactCSSTransitionGroup': 'React.addons.CSSTransitionGroup'
-  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {

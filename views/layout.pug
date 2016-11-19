@@ -1,3 +1,4 @@
+-NODE_ENV=process.env.NODE_ENV;
 doctype html
 html(lang='zh-Hans')
   head
@@ -7,11 +8,7 @@ html(lang='zh-Hans')
     meta(name='renderer',content='webkit')
     meta(http-equiv='X-UA-Compatible' content='IE=edge,chrome=1')
     meta(name='viewport',content='width=device-width,initial-scale=1.0')
-    script(src='/vendor/react-with-addons.min.js')
-    script(src='/vendor/react-dom.min.js')
     block head
   body
     block body
-    //script
-    //  include ../static/dist/vendor/roboto.font.js
     block script
