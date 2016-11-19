@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const name = 'index';
+const name = 'app';
 module.exports = {
   entry: {
     [`${name}`]: `./front/src/script/${name}`,

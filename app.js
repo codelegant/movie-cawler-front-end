@@ -25,7 +25,7 @@ app
   .use(logger())
   .use(server(path.join(__dirname, '/front/dist')))
   .use(bodyParser())
-  .use(favicon(path.join(__dirname, '/favicon.ico')))
+  .use(favicon(path.join(__dirname, '/favicon.ico')));
 
 router
   .use(views(path.join(__dirname, '/views'), { extension: 'pug' }));
@@ -40,7 +40,7 @@ router.get('/', async ctx => {
     // const currentCity = await city.getByRegionName('深圳');
     // const movies = await movie.getByCityId(currentCity[ 0 ]._id);
 
-    await ctx.render('index', {
+    await ctx.render('app', {
       content: '',
       props: JSON.stringify({})
     });
