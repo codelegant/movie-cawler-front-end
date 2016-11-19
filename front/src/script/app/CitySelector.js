@@ -10,6 +10,8 @@ export default class CitySelector extends React.Component {
 
   handleToggle = () => this.setState({ open: ! this.state.open });
 
+  handleClose = () => this.setState({ open: false });
+
   render() {
     return (
       <div>
@@ -17,7 +19,11 @@ export default class CitySelector extends React.Component {
           label="Toggle Drawer"
           onTouchTap={this.handleToggle}
         />
-        <Drawer open={this.state.open}>
+        <Drawer
+          docked={false}
+          open={this.state.open}
+          onRequestChange={open => this.setState({ open })}
+        >
         </Drawer>
       </div>
     );

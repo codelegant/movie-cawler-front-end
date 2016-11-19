@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Index from './app/App';
+import AppTheme from './app/AppTheme';
+import normalize from 'normalize.css';
 
 ReactDOM.render(
-  <Index />,
+  <AppTheme />,
   document.getElementById('container')
 );

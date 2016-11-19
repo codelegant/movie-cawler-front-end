@@ -1,14 +1,29 @@
 import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 import CitySelector from './CitySelector';
-injectTapEventPlugin();
 
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      citySelectorDisplay: false,
+      city: {
+        name: '深圳',
+        id: '',
+      },
+    }
+  }
 
-const Index = () => (
-  <MuiThemeProvider>
-    <CitySelector />
-  </MuiThemeProvider>
-);
+  updateCitySelectorDisplay = citySelectorDisplay => this.setState({ citySelectorDisplay });
 
-export default Index;
+  componentDidMount() {
+    this.setState({ pageLoading: false });
+  }
+
+  render() {
+    return (
+      <div>
+        <CitySelector/>
+      </div>
+    );
+  }
+}
